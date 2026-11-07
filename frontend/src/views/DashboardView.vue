@@ -23,7 +23,7 @@ onMounted(() => { fetchStats() })
   <div>
       <div class="page-heading">
           <div>
-<h1>Halo, <span>Caregiver</span>!</h1>
+              <h1>Halo, <span>Caregiver</span>!</h1>
               <p>Mari pantau perkembangan pasien hari ini.</p>
           </div>
           <router-link to="/patients" class="btn btn-primary">+ Tambah Pasien</router-link>
@@ -31,58 +31,34 @@ onMounted(() => { fetchStats() })
 
       <div class="notice success">Terhubung ke Database MySQL.</div>
 
+      <!-- 4 KOTAK STATISTIK -->
       <div class="stats-grid">
-  <!-- KOTAK 1: TOTAL PASIEN -->
-  <div class="stat-card">
-      <div class="stat-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--purple);">
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-          <circle cx="9" cy="7" r="4"></circle>
-          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-          <circle cx="12" cy="3" r="2.5"></circle>
-          <line x1="12" y1="1.5" x2="12" y2="4.5"></line>
-          <line x1="10.5" y1="3" x2="13.5" y2="3"></line>
-        </svg>
-      </div>
-      <div class="stat-label">Total Pasien</div>
-      <div class="stat-number">{{ stats.patients }}</div>
-  </div>
+          <div class="stat-card">
+              <img src="/total_pasien.png" alt="Total Pasien" width="32" height="32" style="margin-bottom: 8px;">
+              <div class="stat-label">Total Pasien</div>
+              <div class="stat-number">{{ stats.patients }}</div>
+          </div>
 
-  <!-- KOTAK 2: TOTAL OBSERVASI -->
-  <div class="stat-card">
-      <div class="stat-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--purple);">
-          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M9 14h6"></path><path d="M9 18h6"></path><path d="M9 10h6"></path>
-        </svg>
-      </div>
-      <div class="stat-label">Total Observasi</div>
-      <div class="stat-number">{{ stats.observations }}</div>
-  </div>
+          <div class="stat-card">
+              <img src="/observasi.png" alt="Total Observasi" width="32" height="32" style="margin-bottom: 8px;">
+              <div class="stat-label">Total Observasi</div>
+              <div class="stat-number">{{ stats.observations }}</div>
+          </div>
 
-  <!-- KOTAK 3: JURNAL HARIAN -->
-  <div class="stat-card">
-      <div class="stat-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--purple);">
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-        </svg>
-      </div>
-      <div class="stat-label">Jurnal Harian</div>
-      <div class="stat-number">{{ stats.journals }}</div>
-  </div>
+          <div class="stat-card">
+              <img src="/journal.png" alt="Jurnal Harian" width="32" height="32" style="margin-bottom: 8px;">
+              <div class="stat-label">Jurnal Harian</div>
+              <div class="stat-number">{{ stats.journals }}</div>
+          </div>
 
-  <!-- KOTAK 4: CATATAN PROGRES -->
-  <div class="stat-card">
-      <div class="stat-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--purple);">
-          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-        </svg>
+          <div class="stat-card">
+              <img src="/progress.png" alt="Catatan Progres" width="32" height="32" style="margin-bottom: 8px;">
+              <div class="stat-label">Catatan Progres</div>
+              <div class="stat-number">{{ stats.progress }}</div>
+          </div>
       </div>
-      <div class="stat-label">Catatan Progres</div>
-      <div class="stat-number">{{ stats.progress }}</div>
-  </div>
-</div>
 
+      <!-- 2 PANEL BAWAH -->
       <div class="dashboard-grid">
           <div class="panel">
               <div class="panel-heading" style="display:flex; justify-content:space-between;">

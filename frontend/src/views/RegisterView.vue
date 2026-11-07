@@ -1,10 +1,16 @@
 <template>
   <section class="login-screen">
     <div class="login-card">
-      <div class="logo"></div>
       
-      <h1>Buat Akun Baru</h1>
-      <p class="subtitle">Daftar untuk mulai memantau pasien stroke Anda.</p>
+      <!-- LOGO -->
+      <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+        <div class="logo" style="width: 100px; height: 100px; margin: 0; padding: 10px; display: flex; align-items: center; justify-content: center;">
+          <img src="/logo.png" alt="Logo Caregiver" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+      </div>
+      
+      <h1 style="text-align: center;">Buat Akun Baru</h1>
+      <p class="subtitle" style="text-align: center;">Daftar untuk mulai memantau pasien stroke Anda.</p>
       
       <div v-if="success" class="inline-success">✅ Pendaftaran berhasil! Mengalihkan ke Login...</div>
       
@@ -15,33 +21,27 @@
         <label>Kata Sandi</label>
         <div class="input-wrapper">
           <input :type="showPass ? 'text' : 'password'" v-model="password" placeholder="Buat kata sandi (min. 8 karakter)" required>
-<button type="button" class="toggle-pass" @click="showPass = !showPass">
-  <!-- Ikon Mata Terbuka (Pas password disembunyiin) -->
-  <svg v-if="!showPass" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>
-  </svg>
-  
-  <!-- Ikon Mata Dicoret (Pas password ditampilin) -->
-  <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>
-  </svg>
-</button>
+          <button type="button" class="toggle-pass" @click="showPass = !showPass">
+            <svg v-if="!showPass" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+          </button>
         </div>
 
         <label>Verifikasi Kata Sandi</label>
         <div class="input-wrapper">
           <input :type="showPassConfirm ? 'text' : 'password'" v-model="confirmPassword" placeholder="Ketik ulang kata sandi" required>
-<button type="button" class="toggle-pass" @click="showPass = !showPass">
-  <!-- Ikon Mata Terbuka (Pas password disembunyiin) -->
-  <svg v-if="!showPass" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>
-  </svg>
-  
-  <!-- Ikon Mata Dicoret (Pas password ditampilin) -->
-  <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>
-  </svg>
-</button>
+          <button type="button" class="toggle-pass" @click="showPassConfirm = !showPassConfirm">
+            <svg v-if="!showPassConfirm" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+          </button>
         </div>
         <div class="error-message" :class="{show: error}">Kata sandi tidak cocok atau kurang dari 8 karakter.</div>
 
