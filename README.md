@@ -1,4 +1,4 @@
-**# AI Caregiver Assistant for Stroke Patients
+## AI Caregiver Assistant for Stroke Patients
 
 AI Caregiver Assistant adalah platform berbasis web yang dirancang khusus untuk membantu *caregiver* (perawat/pendamping) dalam memantau, mencatat, dan menganalisis perkembangan pasien pasca-stroke. Dengan dukungan kecerdasan buatan (AI), aplikasi ini mempermudah proses pemantauan gejala harian, tanda-tanda vital, serta memberikan rekomendasi pemulihan.
 
